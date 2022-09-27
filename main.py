@@ -12,10 +12,12 @@ app.add_middleware(
     allow_headers=['*']
 )
 
+
 @app.get("/api/hoge")
 def index1():
     return {"message": "hogehoge"}
 
 
 if __name__ == "__main__":
-    uvicorn.run(app="main:app",host="0.0.0.0",reload=True,port=3000,log_level="debug",)
+    uvicorn.run(app="main:app", host="0.0.0.0",
+                reload=True, port=3000, log_level="debug",)

@@ -5,9 +5,11 @@ description = ""
 authors = ["Tonoyama <yudaitonoyama@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.10.5"
 fastapi = "^0.85.0"
 uvicorn = "^0.18.3"
+flake8 = "^5.0.4"
+pre-commit = "^2.20.0"
 
 [tool.poetry.dev-dependencies]
 
