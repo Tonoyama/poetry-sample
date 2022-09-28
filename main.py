@@ -3,7 +3,6 @@ from starlette.middleware.cors import CORSMiddleware
 import uvicorn
 from routers import API
 from model.database import create_database, create_session, Product, Engine
-import default_value
 
 create_database()
 app = FastAPI()
@@ -22,7 +21,7 @@ if __name__ == "__main__":
     if "product" not in Engine.table_names():
         raise "productテーブルは存在しません"
     product = session.query(Product).all()
-    if len(product) == 0:
-        default_value.create_default_value()
+    # if len(product) == 0:
+    #     default_value.create_default_value()
     uvicorn.run(app="main:app", host="0.0.0.0",
                 reload=True, port=3000, log_level="debug",)
