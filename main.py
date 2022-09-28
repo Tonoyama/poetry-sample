@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 import uvicorn
+from routers import API
 
 app = FastAPI()
-
+app.include_router(API.router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=['*'],
@@ -11,12 +12,6 @@ app.add_middleware(
     allow_methods=['*'],
     allow_headers=['*']
 )
-
-
-@app.get("/api/hoge")
-def index1():
-    return {"message": "hogehoge"}
-
 
 if __name__ == "__main__":
     uvicorn.run(app="main:app", host="0.0.0.0",
